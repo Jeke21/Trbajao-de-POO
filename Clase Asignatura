@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CapaNegocio
+{
+    public class Asignatura
+    {
+        //atributos de la clase
+        private string dificultad;
+        private string nombre;
+        private string tipo;
+        // Propiedades
+        public string Dificultad
+        {
+            get { return this.dificultad; } //Lectura de Atributos
+            set { this.dificultad = value; } //Escritura del Atributo
+        }
+        public string Nombre
+        {
+            get { return this.nombre; } //Lectura de Atributos
+            set { this.nombre = value; } //Escritura del Atributo
+        }
+        public string Tipo
+        {
+            get { return this.tipo; } //Lectura de Atributos
+            set { this.tipo = value; } //Escritura del Atributo
+        }
+        //Metodos u Operaciones
+        public string Enseñar()
+        {
+            return "No se ha implementado este metodo";
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
+{
+    public partial class FrmAsignatura : Form
+    {
+        public FrmAsignatura()
+        {
+            InitializeComponent();
+        }
+        //Instanciar la clase a travez de un objeto
+        //Declaracion de Variables Globales
+        CapaNegocio.Asignatura Asig1 = new CapaNegocio.Asignatura();
+        private void btnLeer_Click(object sender, EventArgs e)
+        {
+            //Leer los datos del Formulario
+            string nombre = txtNombre.Text;
+            string dificultad = txtDificultad.Text;
+            string tipo = txtTipo.Text;
+            Asig1.Nombre = nombre;
+            Asig1.Dificultad = dificultad;
+            Asig1.Tipo = tipo;
+            MessageBox.Show("Se han registrado los datos");
+        }
+
+        private void btnEscribir_Click(object sender, EventArgs e)
+        {
+            //Mostar los datos almacenados 
+            string dificultad = Asig1.Dificultad;
+            string nombre = Asig1.Nombre;
+            string tipo = Asig1.Tipo;
+            MessageBox.Show("Dificultad: " + dificultad + "Nombre: " + nombre + "Tipo: " + tipo);
+
+        }
+
+        private void btnEsneñar_Click(object sender, EventArgs e)
+        {
+            //Mostrar Metodo
+            MessageBox.Show(Asig1.Enseñar());
+        }
+    }
+}
