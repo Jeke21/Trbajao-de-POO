@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CapaNegocio
+{
+    public class Nota
+    {
+        //atributos de la clase
+        private string calificacion;
+        private string tipo;
+        // Propiedades
+        public string Calificacion
+        {
+            get { return this.calificacion; } //Lectura de Atributos
+            set { this.calificacion = value; } //Escritura del Atributo
+        }
+        public string Tipo
+        {
+            get { return this.tipo; } //Lectura de Atributos
+            set { this.tipo = value; } //Escritura del Atributo
+        }
+        //Metodos u Operaciones
+        public string MedirConocimientos()
+        {
+            return "No se ha implementado este metodo";
+        }
+
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
+{
+    public partial class FrmNota : Form
+    {
+        public FrmNota()
+        {
+            InitializeComponent();
+        }
+        //Instanciar la clase a travez de un objeto
+        //Declaracion de Variables Globales
+        CapaNegocio.Nota Nota1 = new CapaNegocio.Nota();
+        private void btnLeer_Click(object sender, EventArgs e)
+        {
+            //Leer los datos del Formulario
+            string calificacion = txtCalificacion.Text;
+            string tipo = txtTipo.Text;
+            Nota1.Calificacion = calificacion;
+            Nota1.Tipo = tipo;
+            MessageBox.Show("Se han registrado los datos");
+        }
+
+        private void btnEscribir_Click(object sender, EventArgs e)
+        {
+            //Mostar los datos almacenados 
+            string calificacion = Nota1.Calificacion;
+            string tipo = Nota1.Tipo;
+            MessageBox.Show("Calificacion: " + calificacion + "Tipo: " + tipo);
+        }
+
+        private void btnMedirConocimientos_Click(object sender, EventArgs e)
+        {
+            //Mostrar Metodo
+            MessageBox.Show(Nota1.MedirConocimientos());
+        }
+    }
+}
