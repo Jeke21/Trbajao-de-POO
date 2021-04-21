@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CapaNegocio
+{
+    public class Laboratorio
+    {
+        //atributos de la clase
+        private string nombres;
+        private int dimension;
+        // Propiedades
+        public string Nombres
+        {
+            get { return this.nombres; } //Lectura de Atributos
+            set { this.nombres = value; } //Escritura del Atributo
+        }
+        public int Dimension
+        {
+            get { return this.dimension; } //Lectura de Atributos
+            set { this.dimension = value; } //Escritura del Atributo
+        }
+        //Metodos u Operaciones
+        public string Investigar()
+        {
+            return "No se ha implementado este metodo";
+        }
+        public string Experimentar()
+        {
+            return "No se ha implementado este metodo";
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
+{
+    public partial class FrmLaboratorio : Form
+    {
+        public FrmLaboratorio()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Instanciar la clase a travez de un objeto
+        //Declaracion de Variables Globales
+        CapaNegocio.Laboratorio Lab1 = new CapaNegocio.Laboratorio();
+        private void btnLeer_Click(object sender, EventArgs e)
+        {
+            //Leer los datos del Formulario
+            string nombres = txtNombre.Text;
+            int dimension = int.Parse(txtDimension.Text);
+            Lab1.Nombres = nombres;
+            Lab1.Dimension = dimension;
+            MessageBox.Show("Se han registrado los datos");
+        }
+
+        private void btnEscribir_Click(object sender, EventArgs e)
+        {
+            //Mostar los datos almacenados 
+            string nombres = Lab1.Nombres;
+            int dimension = Lab1.Dimension;
+            MessageBox.Show("Nombre: " + nombres + "Edad: " + dimension);
+        }
+
+        private void btnInvestigar_Click(object sender, EventArgs e)
+        {
+            //Mostrar Metodo
+            MessageBox.Show(Lab1.Investigar());
+        }
+
+        private void btnExperimentar_Click(object sender, EventArgs e)
+        {
+            //Mostrar Metodo
+            MessageBox.Show(Lab1.Experimentar());
+        }
+    }
+}
