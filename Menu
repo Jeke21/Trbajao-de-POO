@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
+{
+    public partial class FrmPrincipal : Form
+    {
+        public FrmPrincipal()
+        {
+            InitializeComponent();
+        }
+
+        private void alumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Llamar al formulario Alumno
+            FrmAlumno formulario = new FrmAlumno();
+            formulario.Show();
+        }
+
+        private void docenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Llamar al formulario Alumno
+            FrmDocente formulario = new FrmDocente();
+            formulario.Show();
+        }
+
+        private void laboratorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Llamar al formulario Alumno
+            FrmLaboratorio formulario = new FrmLaboratorio();
+            formulario.Show();
+        }
+
+        private void asignaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Llamar al formulario Alumno
+            FrmAsignatura formulario = new FrmAsignatura();
+            formulario.Show();
+        }
+
+        private void jefePracticaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmJefePractica formulario = new FrmJefePractica();
+            formulario.Show();
+        }
+
+        private void notasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNota formulario = new FrmNota();
+            formulario.Show();
+        }
+
+        private void rectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRector formulario = new FrmRector();
+            formulario.Show();
+        }
+
+        private void practicasPreProfasionalesPPPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPracticasPreProfesionales formulario = new FrmPracticasPreProfesionales();
+            formulario.Show();
+        }
+    }
+}
